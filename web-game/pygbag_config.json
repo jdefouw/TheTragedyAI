@@ -1,0 +1,8 @@
+{
+  "app_name": "TragedyCommonsAI",
+  "main": "main.py",
+  "title": "Tragedy of the Commons - Human vs AI",
+  "icon": "assets/icon.png",
+  "version": "1.0.0"
+}
+
