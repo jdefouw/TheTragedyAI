@@ -6,7 +6,7 @@
 
 import { useEffect, useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { supabase, SimulationBatchRun } from '@/lib/supabase'
+import { supabase, SimulationBatchRun } from '../lib/supabase'
 import { Cpu } from 'lucide-react'
 
 interface EfficiencyData {
