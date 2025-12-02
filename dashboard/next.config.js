@@ -4,18 +4,17 @@ const path = require('path')
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
-  webpack: (config, { defaultLoaders }) => {
-    // Resolve @ alias to src directory
-    const srcPath = path.resolve(__dirname, 'src')
+  webpack: (config) => {
+    // Always resolve @ to src relative to this config file's directory
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': srcPath,
+      '@': path.resolve(__dirname, 'src'),
     }
     
-    // Ensure modules are resolved from the dashboard directory
+    // Add src to module resolution
     config.resolve.modules = [
-      path.resolve(__dirname, 'node_modules'),
-      'node_modules',
+      path.resolve(__dirname, 'src'),
+      ...(config.resolve.modules || []),
     ]
     
     return config
