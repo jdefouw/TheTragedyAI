@@ -6,7 +6,7 @@
 
 import { useEffect, useState } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { supabase, SimulationBatchRun } from '@/lib/supabase'
+import { supabase, SimulationBatchRun } from '../lib/supabase'
 import { TrendingUp } from 'lucide-react'
 
 interface ChartData {

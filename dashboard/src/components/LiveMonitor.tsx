@@ -5,7 +5,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase, SimulationBatchRun } from '@/lib/supabase'
+import { supabase, SimulationBatchRun } from '../lib/supabase'
 import { Activity } from 'lucide-react'
 
 export default function LiveMonitor() {

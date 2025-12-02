@@ -7,7 +7,7 @@
 
 import { useEffect, useState } from 'react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { supabase } from '@/lib/supabase'
+import { supabase } from '../lib/supabase'
 import { Users } from 'lucide-react'
 
 interface TimeSeriesPoint {
