@@ -4,7 +4,7 @@
 
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { supabase, SimulationBatchRun } from './supabase'
 import { CheckCircle, XCircle, AlertCircle } from 'lucide-react'
 
@@ -24,11 +24,7 @@ export default function HypothesisWidget() {
   })
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    calculateHypothesis()
-  }, [])
-
-  const calculateHypothesis = async () => {
+  const calculateHypothesis = useCallback(async () => {
     try {
       const { data: runs, error } = await supabase
         .from('simulation_batch_runs')
@@ -105,7 +101,11 @@ export default function HypothesisWidget() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
+
+  useEffect(() => {
+    calculateHypothesis()
+  }, [calculateHypothesis])
 
   // Normal CDF approximation
   const normalCDF = (x: number): number => {
