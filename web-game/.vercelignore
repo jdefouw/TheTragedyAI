@@ -1,0 +1,7 @@
+# Ignore everything except build/web
+*
+!build/
+build/*
+!build/web/
+!build/web/**
+

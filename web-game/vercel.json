@@ -3,10 +3,17 @@
   "buildCommand": "",
   "outputDirectory": "build/web",
   "framework": null,
-  "rewrites": [
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "headers": [
     {
       "source": "/(.*)",
-      "destination": "/$1"
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
     }
   ]
 }
