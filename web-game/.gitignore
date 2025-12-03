@@ -1,0 +1,14 @@
+# Ignore all build artifacts except the web output
+build/*
+!build/web/
+!build/web/**
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+.env.local
+

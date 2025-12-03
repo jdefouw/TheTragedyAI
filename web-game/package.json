@@ -1,0 +1,20 @@
+{
+  "name": "tragedy-commons-web-game",
+  "version": "1.0.0",
+  "description": "WebAssembly game for Tragedy of the Commons AI",
+  "scripts": {
+    "build": "python -m pip install pygbag && python -m pygbag --build main.py",
+    "build:check": "node -e \"const fs = require('fs'); const path = require('path'); const buildPath = path.join(__dirname, 'build', 'web', 'index.html'); if (!fs.existsSync(buildPath)) { console.error('Build not found! Run npm run build first.'); process.exit(1); } else { console.log('Build found at:', buildPath); }\"",
+    "prebuild": "echo 'Building web-game with pygbag...'",
+    "postbuild": "npm run build:check"
+  },
+  "keywords": [
+    "pygame",
+    "wasm",
+    "webassembly",
+    "game"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

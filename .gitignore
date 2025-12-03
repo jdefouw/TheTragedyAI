@@ -58,8 +58,9 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
-# Web game build
-web-game/build/
+# Web game build (but allow build/web for deployment)
+web-game/build/*
+!web-game/build/web/
 web-game/__pycache__/
 
 # Dashboard
