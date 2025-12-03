@@ -1,7 +1,7 @@
-# Ignore everything except build/web
+# Only include build/web directory for deployment
+# Everything else is ignored
 *
 !build/
-build/*
 !build/web/
 !build/web/**
 
