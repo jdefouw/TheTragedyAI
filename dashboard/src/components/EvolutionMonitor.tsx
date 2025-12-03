@@ -7,7 +7,7 @@
 
 import { useEffect, useState } from 'react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import { supabase } from '@/lib/supabase'
+import { supabase } from './supabase'
 import { Dna } from 'lucide-react'
 
 interface GenerationStats {

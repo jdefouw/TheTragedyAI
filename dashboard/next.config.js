@@ -4,25 +4,28 @@ const path = require('path')
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
-  webpack: (config, { dir }) => {
-    // Use the dir parameter from Next.js which is the absolute path to the project
+  webpack: (config, { dir, isServer }) => {
+    // Get absolute path to src directory
     const srcPath = path.resolve(dir, 'src')
     
-    // Ensure resolve exists
-    config.resolve = config.resolve || {}
-    
-    // Set up aliases - merge with existing to avoid conflicts
-    config.resolve.alias = {
-      ...(config.resolve.alias || {}),
-      '@': srcPath,
+    // Initialize resolve if it doesn't exist
+    if (!config.resolve) {
+      config.resolve = {}
     }
     
-    // Ensure extensions include .ts and .tsx
-    config.resolve.extensions = [
-      ...(config.resolve.extensions || []),
-      '.ts',
-      '.tsx',
-    ]
+    // Initialize alias object
+    if (!config.resolve.alias) {
+      config.resolve.alias = {}
+    }
+    
+    // Set the @ alias to point to src directory
+    // This must be an absolute path
+    config.resolve.alias['@'] = srcPath
+    
+    // Log for debugging (will show in build output)
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Webpack alias @ configured to:', srcPath)
+    }
     
     return config
   },
