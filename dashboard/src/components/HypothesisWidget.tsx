@@ -5,7 +5,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase, SimulationBatchRun } from '@/lib/supabase'
+import { supabase, SimulationBatchRun } from '../lib/supabase'
 import { CheckCircle, XCircle, AlertCircle } from 'lucide-react'
 
 interface HypothesisStatus {
